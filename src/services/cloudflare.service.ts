@@ -123,7 +123,8 @@ export const uploadBuildToR2 = async (filePathArr: string[]) => {
                         params: {
                             Body: file,
                             Bucket: process.env.BUCKET_NAME,
-                            Key: key
+                            Key: key,
+                            ContentType: filePath.endsWith("svg")? "image/svg+xml" : "application/octet-stream"
                         }
                     })
             
